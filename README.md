@@ -1,10 +1,13 @@
 # Repo with docker images and examples.
 ## What's inside
 - `examples/`
+
     Folder with examples how we are using official or other existing images if they satisfy our needs.
 - `images/`
+
     Docker images created by our developers for some special tasks.
 - `install-docker/`
+
     [Ansible](https://www.ansible.com/) playbook designed to automate docker installation on any Ubuntu system.
     
     
