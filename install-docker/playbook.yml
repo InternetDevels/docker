@@ -1,0 +1,27 @@
+---
+
+- hosts: all
+
+  vars:
+    docker_compose_version:  1.7.1
+  # --- Support for Ubuntu 16.04 ---
+  # Ansible doesn't support python 3
+  # istalled by default in Ubuntu 16.04.
+  gather_facts: False
+
+  pre_tasks:
+    - name: apt-get update
+      raw: apt-get update -qq
+      when: ansible_python_interpreter is defined
+
+    - name: Install python 2.7
+      raw: apt-get install -qq python2.7
+      when: ansible_python_interpreter is defined
+
+    - name: Gathering facts
+      setup:
+  # --- End support for Ubuntu 16.04 ---
+
+  roles:
+    - franklinkim.docker
+    - franklinkim.docker-compose
